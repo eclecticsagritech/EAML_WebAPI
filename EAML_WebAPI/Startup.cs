@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EAML_WebAPI.DTO_s;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,12 @@ namespace EAML_WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.Configure<MvcOptions>(options =>
+            {
+                //mvc options
+            });
+
+            services.Configure<AppSettings>(Configuration.GetSection("key"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
